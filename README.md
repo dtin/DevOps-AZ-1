@@ -50,10 +50,12 @@ terraform plan -out solution.plan
 
 ### Output
 - **Deploy a Policy**
-Upload image evidence Policy assign successfully
+![output-policy-assigned-2](https://github.com/user-attachments/assets/c60e2567-03b5-45b6-9dd4-8b6162bc0e5b)
 
 - **Packer Template**
-Upload image evidence Packer run successfully
+![output-packer-build-successfully-1](https://github.com/user-attachments/assets/d40a132e-03fe-4fd4-b760-c6aa7b5ae359)
+![output-packer-build-successfully-2](https://github.com/user-attachments/assets/c096ca33-e11d-4292-bf0b-053558ab07a7)
 
 - **Terraform Template**
-Upload image evidence Terraform run successfully
+![output-terraform-successfully-1](https://github.com/user-attachments/assets/9097bde7-0cd8-41d1-aa53-e669eb9b56df)
+![output-terraform-successfully-2](https://github.com/user-attachments/assets/19adec69-800b-4682-b0be-6c9787ff84e4)
