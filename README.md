@@ -48,6 +48,18 @@ You can also change the config using the following command, be aware that you ne
 terraform plan -out solution.plan
 ```
 
+Alternatively, you can change the value configured in file "**vars.tf**". The meaning of each variable will be explained as below:
+
+**prefix**: The prefix which should be used for all resources. The default value will be **udacity**.
+
+**location**: The Azure Region in which all resources should be created. The default value will be **southcentralus**. This value should be changed to the closest region that your end user mostly working in.
+
+**admin_username**: The admin username for the VM being created. The default value will be **tindd3**. This should be an alternative way to access the VM in case your SSH Key is not working.
+
+**admin_password**: The admin password for the VM being created. The default value will be **Password!123**. This should be an alternative way to access the VM in case your SSH Key is not working.
+
+**number_of_virtual_machines**: The number of virtual machines should be created. The default value will be **3**.
+
 ### Output
 - **Deploy a Policy**
 ![output-policy-assigned-2](https://github.com/user-attachments/assets/c60e2567-03b5-45b6-9dd4-8b6162bc0e5b)

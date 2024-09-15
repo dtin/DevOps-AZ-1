@@ -70,6 +70,42 @@ resource "azurerm_network_security_group" "main" {
   }
 
   security_rule {
+    name                       = "AllowOutboundVMCommunication"
+    priority                   = 110
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
+  }
+
+  security_rule {
+    name                       = "AllowLoadBalancerHTTP-TCP"
+    priority                   = 120
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "AzureLoadBalancer"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "AllowLoadBalancerHTTP-UDP"
+    priority                   = 121
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Udp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "AzureLoadBalancer"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
     name                       = "DenyAllFromInternet"
     priority                   = 200
     direction                  = "Inbound"
@@ -84,8 +120,8 @@ resource "azurerm_network_security_group" "main" {
 }
 
 resource "azurerm_network_interface_security_group_association" "nsg_association" {
-  count                   = var.number_of_virtual_machines
-  network_interface_id    = azurerm_network_interface.main[count.index].id
+  count                     = var.number_of_virtual_machines
+  network_interface_id      = azurerm_network_interface.main[count.index].id
   network_security_group_id = azurerm_network_security_group.main.id
 }
 
@@ -141,5 +177,9 @@ resource "azurerm_linux_virtual_machine" "main" {
   os_disk {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
+  }
+
+  tags = {
+    Project = "DevOps-AZ-1"
   }
 }
