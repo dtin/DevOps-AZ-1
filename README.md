@@ -49,7 +49,6 @@ terraform plan -out solution.plan
 ```
 
 <br />
-<br />
 
 **Alternatively**, you can change the value configured in file "**vars.tf**". The meaning of each variable will be explained as below:
 
