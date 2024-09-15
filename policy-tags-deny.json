@@ -1,0 +1,20 @@
+{
+	"mode": "Indexed",
+	"policyRule": {
+		"if": {
+			"anyOf": [
+				{
+					"field": "tags",
+					"exists": "false"
+				},
+				{
+					"field": "tags",
+					"equals": ""
+				}
+			]
+		},
+		"then": {
+			"effect": "deny"
+		}
+	}
+}
